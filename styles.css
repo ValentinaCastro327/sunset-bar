@@ -1,0 +1,51 @@
+body {
+  background: linear-gradient(to right, #ff7e5f, #6a0572);
+  color: white;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  padding-top: 100px;
+  margin: 0;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #ff914d;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffb347;
+}
+
+button.registro {
+  background-color: #6a0572;
+}
+
+button.registro:hover {
+  background-color: #8e3f8f;
+}
