@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Sunset Bar</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .producto button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #6a0572;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .producto {
+      background: rgb(252, 187, 126);
+      color: black;
+      border-radius: 10px;
+      margin: 15px auto;
+      max-width: 400px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .producto img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .producto button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #6a0572;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #carrito {
+      margin-top: 30px;
+      text-align: center;
+      color: white;
+    }
+
+    #total {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    #confirmar {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff914d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      font-size: 18px;
+      color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú Sunset Bar</h1>
+  <h1>Cocteles/Snack</h1>
+
+  <div class="producto">
+    <h2>Mojito - $13.000 COP</h2>
+    <img src="img/Mojito.jpg" alt="Mojito">
+    <button onclick="agregar('Mojito')">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h2>Piña Colada - $14.000 COP</h2>
+    <img src="img/Colada.jpg" alt="Piña Colada">
+    <button onclick="agregar('Piña Colada')">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h2>Tom Collins - $12.000 COP</h2>
+    <img src="img/Tom.jpg" alt="Tom Collins">
+    <button onclick="agregar('Tom Collins')">Agregar al carrito</button>
+  </div>
+
+  <div id="carrito">
+    <h2>Carrito</h2>
+    <ul id="lista"></ul>
+    <p id="total">Total: $0</p>
+    <button id="confirmar" onclick="confirmarPedido()">Realizar Pedido</button>
+    <p id="mensaje"></p>
+  </div>
+
+  <script>
+    let carrito = [];
+    let precioUnitario = 12000;
+
+    function agregar(producto) {
+      carrito.push(producto);
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById("lista");
+      const total = document.getElementById("total");
+      lista.innerHTML = "";
+
+      carrito.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = ${item} <button onclick="eliminar(${index})">Eliminar</button>;
+        lista.appendChild(li);
+      });
+
+      total.innerText = "Total: $" + (carrito.length * precioUnitario).toLocaleString();
+    }
+
+    function eliminar(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    function confirmarPedido() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+      document.getElementById("mensaje").innerText = "¡Tu pedido ha sido tomado con éxito!";
+      carrito = [];
+      actualizarCarrito();
+    }
+  </script>
+</body>
+</html

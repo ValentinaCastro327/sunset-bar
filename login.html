@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión - Sunset Bar</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h2>Iniciar sesión</h2>
+  <form onsubmit="return validarLogin(event)">
+    <input type="text" id="usuario" placeholder="Usuario" required>
+    <input type="password" id="contrasena" placeholder="Contraseña" required>
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <script>
+    function validarLogin(event) {
+      event.preventDefault();
+      const user = document.getElementById('usuario').value;
+      const pass = document.getElementById('contrasena').value;
+
+      if (user === "vale-castro" && pass === "12345678") {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Usuario o contraseña incorrectos.");
+      }
+    }
+  </script>
+</body>
+</html>
